@@ -1,0 +1,5 @@
+1.2.0
+- Print password in a search result
+- Print Username for Microsoft Windows and Unix systems
+- Compatible with the PDF plugin
+- Secure secret Key

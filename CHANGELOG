@@ -1,0 +1,15 @@
+Thu July 27 2011 -- 1.0.1
+	- Compatible with WinAdminPassword 1.2
+	- Serial number can be '0'
+	- You can select the algorithm number of your generated password
+	- You can select the HTML output size of printed passwords
+	- You can select the HTML output color of printed passwords
+Sat Dec 08 2012 -- 1.0.2
+	- Compatible with GLPI > 0.83
+Fri Sept 27 2013 -- 1.0.3
+	- Bug correction
+Sat Sept 28 2013 -- 1.1.0
+	- Compatible with GLPI 0.84.x
+Sat Sept 30 2013 -- 1.1.1
+        - Add menu for printers and network equipments
+	- Add Italian translation (thanks to Marco Gaiarin)
