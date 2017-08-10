@@ -1,9 +1,9 @@
 <?php
 /*
- * @version $Id: HEADER 1 2012-12-08 00:12 Kartnico $
+ * @version $Id: HEADER 1 2015-12-14 15:05 Kartnico $
  -------------------------------------------------------------------------
  GLPI - Gestionnaire Libre de Parc Informatique
- Copyright (C) 2003-2010 by the INDEPNET Development Team.
+ Copyright (C) 2003-2015 by the INDEPNET Development Team.
 
  http://indepnet.net/   http://glpi-project.org
  -------------------------------------------------------------------------
@@ -28,7 +28,7 @@
  --------------------------------------------------------------------------
 // ----------------------------------------------------------------------
 // Original Author of file: Nicolas BOURGES
-// Purpose of file: plugin winadminpassword v1.1.1 - GLPI 0.84
+// Purpose of file: plugin winadminpassword v1.1.2 - GLPI 0.90
 // ----------------------------------------------------------------------
  */
 
@@ -44,7 +44,7 @@ function plugin_init_winadminpassword() {
 	Plugin::registerClass('PluginWinadminpasswordWinadminpassword', array('addtabon' => array('Printer')));
 	Plugin::registerClass('PluginWinadminpasswordWinadminpassword', array('addtabon' => array('NetworkEquipment')));
 
-	if (Session::haveRight('config','w')) {
+	if (Session::haveRight('config', UPDATE)) {
 		$PLUGIN_HOOKS['config_page']['winadminpassword'] = 'front/config.form.php';
 	}
 
@@ -54,18 +54,18 @@ function plugin_init_winadminpassword() {
 function plugin_version_winadminpassword() {
 	return array (
 		'name' => 'WinAdminPassword',
-		'version' => '1.1.1',
+		'version' => '1.1.2',
 		'author'=>'Nicolas BOURGES',
 		'license' => 'GPLv3',
-		'homepage'=>'https://forge.indepnet.net/projects/show/winadminpassword',
-		'minGlpiVersion' => '0.84',// For compatibility / no install in version < 0.84
+		'homepage'=>'https://forge.glpi-project.org/projects/winadminpassword',
+		'minGlpiVersion' => '0.85',// For compatibility / no install in version < 0.85
 	);
 }
 
 // Optional : check prerequisites before install : may print errors or add to message after redirect
 function plugin_winadminpassword_check_prerequisites() {
-	if (version_compare(GLPI_VERSION,'0.84','lt') || version_compare(GLPI_VERSION,'0.85','gt')) {
-		echo "This plugin requires GLPI >= 0.84 and GLPI < 0.85";
+	if (version_compare(GLPI_VERSION,'0.85','lt') || version_compare(GLPI_VERSION,'9.2','gt')) {
+		echo "This plugin requires GLPI >= 0.85 and GLPI < 9.2";
 		return false;
 	}
 	return true;

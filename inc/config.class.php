@@ -1,6 +1,6 @@
 <?php
 /*
- * @version $Id: HEADER 1 2012-12-08 03:30 kartnico $
+ * @version $Id: HEADER 1 2015-12-14 03:30 kartnico $
  -------------------------------------------------------------------------
  GLPI - Gestionnaire Libre de Parc Informatique
  Copyright (C) 2003-2010 by the INDEPNET Development Team.
@@ -28,7 +28,7 @@
  --------------------------------------------------------------------------
 // ----------------------------------------------------------------------
 // Original Author of file: Nicolas BOURGES
-// Purpose of file: plugin winadminpassword v1.1.1 - GLPI 0.84
+// Purpose of file: plugin winadminpassword v1.1.2 - GLPI 0.90
 // ----------------------------------------------------------------------
  */
 
@@ -39,14 +39,14 @@ if (!defined('GLPI_ROOT')) {
 class PluginWinadminpasswordConfig extends CommonDBTM {
 	
 	static function canCreate() {
-		return Session::haveRight("config", "w");
+		return Session::haveRight("config", UPDATE);
 	}
 
 	static function canView() {
-		return Session::haveRight("config", "r");
+		return Session::haveRight("config", READ);
 	}
    
-	function showForm ($ID) {
+	function showForm($ID) {
 		global $LANG;
 
 		if ($ID>0) {

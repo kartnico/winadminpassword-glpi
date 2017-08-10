@@ -1,6 +1,6 @@
 <?php
 /*
- * @version $Id: HEADER 14684 2012-12-08 03:31:40 kartnico $
+ * @version $Id: HEADER 14684 2015-12-14 03:31:40 kartnico $
  -------------------------------------------------------------------------
  GLPI - Gestionnaire Libre de Parc Informatique
  Copyright (C) 2003-2011 by the INDEPNET Development Team.
@@ -28,18 +28,18 @@
  --------------------------------------------------------------------------
 // ----------------------------------------------------------------------
 // Original Author of file: Nicolas BOURGES
-// Purpose of file: plugin winadminpassword v1.1.1 - GLPI 0.84
+// Purpose of file: plugin winadminpassword v1.1.2 - GLPI 0.90
 // ----------------------------------------------------------------------
  */
 
 class PluginWinadminpasswordProfile extends CommonDBTM {
 
 	static function canView() {
-                return Session::haveRight('profile','r');
+                return Session::haveRight('profile', READ);
         }
 
         static function canCreate() {
-                return Session::haveRight('profile','w');
+                return Session::haveRight('profile', UPDATE);
         }
 
 	static function cleanProfiles(Profile $prof) {
@@ -90,11 +90,11 @@ class PluginWinadminpasswordProfile extends CommonDBTM {
 			$target = $options['target'];
 		}
 
-		if (!Session::haveRight("profile","r")) {
+		if (!Session::haveRight("profile", READ)) {
 			return false;
 		}
 
-		$canedit = Session::haveRight("profile", "w");
+		$canedit = Session::haveRight("profile", UPDATE);
 		$prof = new Profile();
 		if ($id){
 			$this->getFromDB($id);
